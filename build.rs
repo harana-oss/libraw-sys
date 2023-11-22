@@ -165,6 +165,61 @@ fn main() {
         defines.push("HAVE_CANON_MAKERNOTES");
     }
 
+    if check_type(&libraw, "libraw_fuji_info_t") {
+        println!("cargo:rustc-cfg=have_fuji_info");
+        defines.push("HAVE_FUJI_INFO");
+    }
+
+    if check_type(&libraw, "libraw_hasselblad_makernotes_t") {
+        println!("cargo:rustc-cfg=have_hasselblad_makernotes");
+        defines.push("HAVE_HASSELBLAD_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_kodak_makernotes_t") {
+        println!("cargo:rustc-cfg=have_kodak_makernotes");
+        defines.push("HAVE_KODAK_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_nikon_makernotes_t") {
+        println!("cargo:rustc-cfg=have_nikon_makernotes");
+        defines.push("HAVE_NIKON_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_olympus_makernotes_t") {
+        println!("cargo:rustc-cfg=have_olympus_makernotes");
+        defines.push("HAVE_OLYMPUS_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_p1_makernotes_t") {
+        println!("cargo:rustc-cfg=have_p1_makernotes");
+        defines.push("HAVE_P1_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_panasonic_makernotes_t") {
+        println!("cargo:rustc-cfg=have_panasonic_makernotes");
+        defines.push("HAVE_PANASONIC_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_pentax_makernotes_t") {
+        println!("cargo:rustc-cfg=have_pentax_makernotes");
+        defines.push("HAVE_PENTAX_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_ricoh_makernotes_t") {
+        println!("cargo:rustc-cfg=have_ricoh_makernotes");
+        defines.push("HAVE_RICOH_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_samsung_makernotes_t") {
+        println!("cargo:rustc-cfg=have_samsung_makernotes");
+        defines.push("HAVE_SAMSUNG_MAKERNOTES");
+    }
+
+    if check_type(&libraw, "libraw_sony_info_t") {
+        println!("cargo:rustc-cfg=have_sony_info");
+        defines.push("HAVE_SONY_INFO");
+    }
+
     if check_type(&libraw, "libraw_gps_info_t") {
         println!("cargo:rustc-cfg=have_gps_info");
         defines.push("HAVE_GPS_INFO");

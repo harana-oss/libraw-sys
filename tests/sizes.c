@@ -39,6 +39,50 @@ EXPORT_SIZE(libraw_dng_color_t)
 EXPORT_SIZE(libraw_canon_makernotes_t)
 #endif
 
+#ifdef HAVE_FUJI_INFO
+EXPORT_SIZE(libraw_fuji_info_t)
+#endif
+
+#ifdef HAVE_HASSELBLAD_MAKERNOTES
+EXPORT_SIZE(libraw_hasselblad_makernotes_t)
+#endif
+
+#ifdef HAVE_KODAK_MAKERNOTES
+EXPORT_SIZE(libraw_kodak_makernotes_t)
+#endif
+
+#ifdef HAVE_NIKON_MAKERNOTES
+EXPORT_SIZE(libraw_nikon_makernotes_t)
+#endif
+
+#ifdef HAVE_OLYMPUS_MAKERNOTES
+EXPORT_SIZE(libraw_olympus_makernotes_t)
+#endif
+
+#ifdef HAVE_P1_MAKERNOTES
+EXPORT_SIZE(libraw_p1_makernotes_t)
+#endif
+
+#ifdef HAVE_PANASONIC_MAKERNOTES
+EXPORT_SIZE(libraw_panasonic_makernotes_t)
+#endif
+
+#ifdef HAVE_PENTAX_MAKERNOTES
+EXPORT_SIZE(libraw_pentax_makernotes_t)
+#endif
+
+#ifdef HAVE_RICOH_MAKERNOTES
+EXPORT_SIZE(libraw_ricoh_makernotes_t)
+#endif
+
+#ifdef HAVE_SAMSUNG_MAKERNOTES
+EXPORT_SIZE(libraw_samsung_makernotes_t)
+#endif
+
+#ifdef HAVE_SONY_INFO
+EXPORT_SIZE(libraw_sony_info_t)
+#endif
+
 EXPORT_SIZE(libraw_imgother_t)
 
 #ifdef HAVE_GPS_INFO
