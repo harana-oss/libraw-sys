@@ -7,7 +7,10 @@ use std::path::Path;
 use std::io::prelude::*;
 
 fn main() {
-    let libraw = pkg_config::Config::new().atleast_version("0.15.0").find("libraw_r").unwrap();
+    let libraw = pkg_config::Config::new().atleast_version("0.21.1").find("libraw_r").unwrap();
+
+    #[cfg(target_os = "macos")]
+    println!("cargo:rustc-link-search=/opt/homebrew/opt/gcc/lib/gcc/current");
 
     // libraw_iparams_t members
 
