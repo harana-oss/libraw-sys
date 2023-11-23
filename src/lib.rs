@@ -88,6 +88,7 @@ pub struct libraw_makernotes_t {
 }
 
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct libraw_raw_inset_crop_t {
     pub cleft: c_ushort,
     pub ctop: c_ushort,
@@ -96,6 +97,7 @@ pub struct libraw_raw_inset_crop_t {
 }
 
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct libraw_image_sizes_t {
     pub raw_height: c_ushort,
     pub raw_width: c_ushort,
@@ -952,6 +954,7 @@ pub const LIBRAW_DECODER_NOTSET:                    LibRaw_decoder_flags = 1<<15
 pub const LIBRAW_DECODER_TRYRAWSPEED3:              LibRaw_decoder_flags = 1<<16;
 
 #[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum LibRaw_internal_thumbnail_formats
 {
     LIBRAW_INTERNAL_THUMBNAIL_UNKNOWN       = 0,
@@ -967,6 +970,7 @@ pub enum LibRaw_internal_thumbnail_formats
 }
 
 #[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum LibRaw_thumbnail_formats {
     LIBRAW_THUMBNAIL_UNKNOWN    = 0,
     LIBRAW_THUMBNAIL_JPEG       = 1,
@@ -986,6 +990,7 @@ pub const LIBRAW_THUMBNAIL_ROLLEI:      LibRaw_thumbnail_formats = LibRaw_thumbn
 pub const LIBRAW_THUMBNAIL_H265:        LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_H265;
 
 #[repr(C)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum LibRaw_image_formats {
     LIBRAW_IMAGE_JPEG   = 1,
     LIBRAW_IMAGE_BITMAP = 2,
