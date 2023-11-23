@@ -865,7 +865,7 @@ pub struct libraw_processed_image_t {
     pub colors: c_ushort,
     pub bits: c_ushort,
     pub data_size: c_uint,
-    pub data: [c_uchar; 1],
+    pub data: *const u8,
 }
 
 #[repr(C)]
