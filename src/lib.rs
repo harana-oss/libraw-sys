@@ -865,7 +865,7 @@ pub struct libraw_processed_image_t {
     pub colors: c_ushort,
     pub bits: c_ushort,
     pub data_size: c_uint,
-    pub data: *const u8,
+    pub data: [c_uchar; 1],
 }
 
 #[repr(C)]
@@ -952,7 +952,7 @@ pub const LIBRAW_DECODER_NOTSET:                    LibRaw_decoder_flags = 1<<15
 pub const LIBRAW_DECODER_TRYRAWSPEED3:              LibRaw_decoder_flags = 1<<16;
 
 #[repr(C)]
-enum LibRaw_internal_thumbnail_formats
+pub enum LibRaw_internal_thumbnail_formats
 {
     LIBRAW_INTERNAL_THUMBNAIL_UNKNOWN       = 0,
     LIBRAW_INTERNAL_THUMBNAIL_KODAK_THUMB   = 1,
@@ -977,12 +977,13 @@ pub enum LibRaw_thumbnail_formats {
     LIBRAW_THUMBNAIL_H265       = 6
 }
 
-pub const LIBRAW_THUMBNAIL_UNKNOWN: LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_UNKNOWN;
-pub const LIBRAW_THUMBNAIL_JPEG:    LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_JPEG;
-pub const LIBRAW_THUMBNAIL_BITMAP:  LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_BITMAP;
-pub const LIBRAW_THUMBNAIL_LAYER:   LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_LAYER;
-pub const LIBRAW_THUMBNAIL_ROLLEI:  LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_ROLLEI;
-pub const LIBRAW_THUMBNAIL_H265:    LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_H265;
+pub const LIBRAW_THUMBNAIL_UNKNOWN:     LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_UNKNOWN;
+pub const LIBRAW_THUMBNAIL_JPEG:        LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_JPEG;
+pub const LIBRAW_THUMBNAIL_BITMAP:      LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_BITMAP;
+pub const LIBRAW_THUMBNAIL_BITMAP16:    LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_BITMAP16;
+pub const LIBRAW_THUMBNAIL_LAYER:       LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_LAYER;
+pub const LIBRAW_THUMBNAIL_ROLLEI:      LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_ROLLEI;
+pub const LIBRAW_THUMBNAIL_H265:        LibRaw_thumbnail_formats = LibRaw_thumbnail_formats::LIBRAW_THUMBNAIL_H265;
 
 #[repr(C)]
 pub enum LibRaw_image_formats {
@@ -1017,7 +1018,7 @@ extern "C" {
     pub fn libraw_open_file(lr: *mut libraw_data_t, file: *const c_char) -> c_int;
     pub fn libraw_open_file_ex(lr: *mut libraw_data_t, file: *const c_char, sz: i64) -> c_int;
 
-    pub fn libraw_open_buffer(lr: *mut libraw_data_t, buffer: *mut c_void, size: size_t) -> c_int;
+    pub fn libraw_open_buffer(lr: *mut libraw_data_t, buffer: *const c_void, size: size_t) -> c_int;
     pub fn libraw_unpack(lr: *mut libraw_data_t) -> c_int;
     pub fn libraw_unpack_thumb(lr: *mut libraw_data_t) -> c_int;
     pub fn libraw_recycle_datastream(lr: *mut libraw_data_t);
