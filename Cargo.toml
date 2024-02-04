@@ -16,5 +16,8 @@ links = "raw"
 libc = "0.2"
 
 [build-dependencies]
-pkg-config = "0.3"
+conan2 = "0.1"
 cc = "1"
+home = "0.5"
+pkg-config = "0.3"
+walkdir = "2"
