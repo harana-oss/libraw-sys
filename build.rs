@@ -15,14 +15,13 @@ fn main() {
 
     ConanInstall::new().build("missing").run().parse().emit();
 
-    let conan_dir = home::home_dir().unwrap().join(".conan2/p");
+    let conan_dir = home::home_dir().unwrap().join(".conan2");
     let build_paths = WalkDir::new(conan_dir.to_str().unwrap()).max_depth(10).into_iter()
         .filter_map(|e| e.ok())
         .filter(|p| p.path().to_str().unwrap().ends_with("include/libraw"))
         .collect::<Vec<_>>();
 
     let libraw_path = build_paths.first().unwrap().path();
-    println!(">>>>> PATH = {}", libraw_path.to_str().unwrap());
 
     // libraw_iparams_t members
     if check_member(libraw_path, "libraw_iparams_t", "software") {
